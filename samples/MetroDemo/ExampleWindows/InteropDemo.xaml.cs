@@ -8,6 +8,7 @@ namespace MetroDemo.ExampleWindows
         [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool InternetSetCookie(string lpszUrlName, string lbszCookieName, string lpszCookieData);
         public string m_cookie = "";
+        private string m_url = "http://121.199.9.136:8082/rispweb/risphost/HSRouter.aspx?noderesid=502146627200";
         public InteropDemo()
         {
             InitializeComponent();
@@ -15,7 +16,7 @@ namespace MetroDemo.ExampleWindows
             //WebBrowser.Document.Cookie = RealsunClientNet.m_CookieContainer.GetCookies(new System.Uri(url));
             m_cookie = RealsunClientNet.m_CookieContainer.GetCookies(new System.Uri(url))[0].ToString();
             setcookie(m_cookie);
-            WebBrowser.Url = new System.Uri("http://121.199.9.136:8082/rispweb/risphost/MiniFrame.aspx");
+            WebBrowser.Url = new System.Uri(m_url);
         }
         private void setcookie(string c)
         {
@@ -24,7 +25,7 @@ namespace MetroDemo.ExampleWindows
             {
                 string name = item[0];
                 string value = item[1];
-                InternetSetCookie("http://121.199.9.136:8082/rispweb/risphost/MiniFrame.aspx", name, value);
+                InternetSetCookie(m_url, name, value);
                
         }
 

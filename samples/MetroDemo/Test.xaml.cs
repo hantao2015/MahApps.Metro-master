@@ -38,22 +38,22 @@ namespace MetroDemo
         private MediaClock clock;
 
 
- 
+        private bool  isLoginbuttonClicked=false;
         private static CookieContainer m_CookieContainer = new CookieContainer();
         private static string m_strLoginUrl = "http://121.199.9.136:8082/rispweb/rispservice/ajaxSvrLogin.aspx";
         public Test()
         {
             InitializeComponent();
-            var accent = ThemeManager.Accents.First(x => x.Name == "Purple");
-            var theme = ThemeManager.GetAppTheme("BaseLight");
+            var accent = ThemeManager.Accents.First(x => x.Name == "Steel");
+           var theme = ThemeManager.GetAppTheme("BaseLight");
             ThemeManager.ChangeAppStyle(Application.Current, accent, theme);
 
             TaskEx.Delay(2000);
             homepage.IsEnabled = false;
 
-            MediaTimeline timeline = new MediaTimeline(new Uri("Wildlife.wmv", UriKind.RelativeOrAbsolute));
+            MediaTimeline timeline = new MediaTimeline(new Uri("http://121.199.9.136:9999/Wildlife2.wmv", UriKind.RelativeOrAbsolute));
             clock = timeline.CreateClock();//创建控制时钟
-
+           
             MediaElement mediaElement = Resources["video"] as MediaElement;//得到资源
             orgin.Child = mediaElement;
             mediaElement.Clock = clock;
@@ -64,6 +64,20 @@ namespace MetroDemo
             clock.Controller.Begin();
 
             MainTabControl.SelectionChanged += MainTabControl_SelectionChanged;
+            clock.Completed += Clock_Completed;
+           
+
+
+        }
+
+        private void Clock_Completed(object sender, EventArgs e)
+        {
+            //button_Click.
+         if (isLoginbuttonClicked==false)
+            {
+                LoginAsyn();
+            }
+          
 
         }
 
@@ -79,8 +93,13 @@ namespace MetroDemo
 
          
 
-        private async void button_Click(object sender, RoutedEventArgs e)
+        private   void button_Click(object sender, RoutedEventArgs e)
 
+        {
+            isLoginbuttonClicked = true;
+              LoginAsyn();
+        }
+        private async void LoginAsyn()
         {
             LoginDialogSettings aSetting = new LoginDialogSettings { ColorScheme = MetroDialogOptions.ColorScheme, InitialUsername = "001", NegativeButtonVisibility = Visibility.Visible, EnablePasswordPreview = true };
             LoginDialogData result = await this.ShowLoginAsync("登入验证", "输入用户名和密码", aSetting);
@@ -91,9 +110,9 @@ namespace MetroDemo
             }
             else
             {
-                string strurl = m_strLoginUrl; 
+                string strurl = m_strLoginUrl;
                 Encoding encoding = Encoding.UTF8;
-         
+
                 try
                 {
                     var controller = await this.ShowProgressAsync("请稍后...", "正在登入系统!");
@@ -116,9 +135,9 @@ namespace MetroDemo
                         welcomepage.IsSelected = true;
                         clock.Controller.Begin();
                         Tiles.Visibility = Visibility.Hidden;
-                 
+
                         await this.ShowMessageAsync("登入失败", Convert.ToString(loginReturnData["message"]));
-                     
+
                     }
 
 
@@ -127,12 +146,11 @@ namespace MetroDemo
                 catch (Exception)
                 {
 
-                    
+
                 }
 
             }
         }
-
         private async void button2_Click(object sender, RoutedEventArgs e)
         {
             // long resid = 498259129115;

@@ -6,18 +6,27 @@
                       Title="DYB医疗数据采集平台-炎症性肠病临床数据管理与分析系统V1.00"
                    WindowState="Maximized"
       WindowStartupLocation="CenterScreen"
-   
- 	
-                    >
+    >
     <Window.Resources>
-        <MediaElement x:Key="video" Source="Wildlife.wmv" Stretch="Fill" LoadedBehavior="Manual"/>
+      
+            
+        <ResourceDictionary>
+            <MediaElement x:Key="video" Source="http://121.199.9.136:9999/Wildlife2.wmv" Stretch="Fill" LoadedBehavior="Manual" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.Resources;component/Icons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Clean/Clean.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            
+        </ResourceDictionary>
     </Window.Resources>
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands ShowLastSeparator="False" >
+            <Button x:Name="button3"  Click="button3_Click" Height="39" Width="120" Content="demo" Visibility="Visible"/>
             <Button x:Name="button"  Click="button_Click" Height="39" Width="120" Content="登入系统 "  />
          
-            <Button x:Name="button3"  Click="button3_Click" Height="39" Width="120" Content="demo" Visibility="Visible"/>
+            
 
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>

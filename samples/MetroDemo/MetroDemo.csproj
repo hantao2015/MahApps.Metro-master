@@ -377,6 +377,10 @@
       <Project>{50b5c7e5-e78b-4b4a-a5c2-214a286f3183}</Project>
       <Name>MiniUiAppCode</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WpfD3D\Render.Core\Renderer.Core.csproj">
+      <Project>{3c55f69f-739d-4a3b-862c-4c36b8f5d616}</Project>
+      <Name>Renderer.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\placeholder_person.gif" />

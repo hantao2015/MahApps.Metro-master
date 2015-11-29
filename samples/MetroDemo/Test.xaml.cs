@@ -25,6 +25,8 @@ using System.Timers;
 using Renderer.Core;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Animation;
+using MiniUiAppCode;
+
 namespace MetroDemo
 {
     /// <summary>
@@ -80,8 +82,8 @@ namespace MetroDemo
         private async void button_Click(object sender, RoutedEventArgs e)
 
         {
-            LoginDialogSettings a = new LoginDialogSettings { ColorScheme = MetroDialogOptions.ColorScheme, InitialUsername = "MahApps", NegativeButtonVisibility = Visibility.Visible, EnablePasswordPreview = true };
-            LoginDialogData result = await this.ShowLoginAsync("登入验证", "输入用户名和密码", a);
+            LoginDialogSettings aSetting = new LoginDialogSettings { ColorScheme = MetroDialogOptions.ColorScheme, InitialUsername = "001", NegativeButtonVisibility = Visibility.Visible, EnablePasswordPreview = true };
+            LoginDialogData result = await this.ShowLoginAsync("登入验证", "输入用户名和密码", aSetting);
 
             if (result == null)
             {
@@ -89,41 +91,43 @@ namespace MetroDemo
             }
             else
             {
-                // result.Username
-                //result.Password
-                string strurl = m_strLoginUrl;//?user=001&upass=123456";
+                string strurl = m_strLoginUrl; 
                 Encoding encoding = Encoding.UTF8;
-                //MessageDialogResult messageResult = await this.ShowMessageAsync("Authentication Information", String.Format("Username: {0}\nPassword: {1}", result.Username, result.Password));
-
-                /*ttp://121.199.9.136:8082/rispweb/DYBService/homepage.asmx/saveMeasureB"*/
+         
                 try
                 {
                     var controller = await this.ShowProgressAsync("请稍后...", "正在登入系统!");
                     controller.SetIndeterminate();
-                    await TaskEx.Delay(5000);
                     controller.SetCancelable(true);
-                    string strJason = PostHttpResponse.GetStream(PostHttpResponse.CreatePostHttpResponseJson(strurl, "", "user=001&upass=123456&clienttype=mobile", null, "", encoding, "", ref m_CookieContainer, true), encoding);
-                    Hashtable hs = (Hashtable)MiniUiAppCode.JSON.Decode(strJason);
+                    Hashtable loginReturnData = await RealsunClientNet.Login(result.Username, result.Password);
+                    if (Convert.ToInt16(loginReturnData["error"]) == 0)
+                    {
+                        await controller.CloseAsync();
+                        homepage.IsEnabled = true;
+                        homepage.IsSelected = true;
+                        clock.Controller.Stop();
+                        Tiles.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        await controller.CloseAsync();
+                        homepage.IsEnabled = false;
+                        homepage.IsSelected = false;
+                        welcomepage.IsSelected = true;
+                        clock.Controller.Begin();
+                        Tiles.Visibility = Visibility.Hidden;
+                 
+                        await this.ShowMessageAsync("登入失败", Convert.ToString(loginReturnData["message"]));
+                     
+                    }
 
-
-
-
-                    await controller.CloseAsync();
-
-
-                    //MessageDialogResult messageResult = await this.ShowMessageAsync("Authentication Information", "登入成功");
-                    //  this.timer.Stop();
-                    homepage.IsEnabled = true;
-                    homepage.IsSelected = true;
-                    clock.Controller.Stop();
-                    Tiles.Visibility = Visibility.Visible;
 
 
                 }
                 catch (Exception)
                 {
 
-                    throw;
+                    
                 }
 
             }

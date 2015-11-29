@@ -1,0 +1,57 @@
+﻿<Controls:MetroWindow
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:ExampleViews="clr-namespace:MetroDemo.ExampleViews" x:Class="MetroDemo.Test"
+                      Title="DYB医疗数据采集平台-炎症性肠病临床数据管理与分析系统"
+                      Width="1200"
+                      Height="600"
+      WindowStartupLocation="CenterScreen"
+   
+ 	
+                    >
+    <Window.Resources>
+        <MediaElement x:Key="video" Source="Wildlife.wmv" Stretch="Fill" LoadedBehavior="Manual"/>
+    </Window.Resources>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands ShowLastSeparator="False" >
+            <Button x:Name="button"  Click="button_Click" Height="39" Width="120" Content="登入系统 "  />
+         
+            <Button x:Name="button3"  Click="button3_Click" Height="39" Width="120" Content="demo"/>
+
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+   
+    <Controls:MetroContentControl>
+
+  
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"  />
+                <RowDefinition Height="Auto" />
+               
+            </Grid.RowDefinitions>
+           
+            <Controls:MetroAnimatedSingleRowTabControl Grid.Row="0" x:Name="MainTabControl"  >
+               
+                <TabItem Header="欢迎" x:Name="welcomepage">
+                    <Border x:Name="orgin"  BorderBrush="DarkGray" BorderThickness="1"    CornerRadius="2"  >
+                    </Border>
+                </TabItem>
+                <TabItem Header="主页" x:Name="homepage">
+                    <ExampleViews:TilesExample  x:Name="Tiles"   HorizontalAlignment="Stretch"    VerticalAlignment="Stretch"/>
+                </TabItem>
+
+            </Controls:MetroAnimatedSingleRowTabControl>
+         
+            <StatusBar Grid.Row="1">
+                <StatusBarItem>DYB Tech.</StatusBarItem>
+                <Separator Style="{StaticResource MetroStatusBarSeparator}" />
+                <StatusBarItem>当前选择:</StatusBarItem>
+                <StatusBarItem Content="{Binding ElementName=MainTabControl, Path=SelectedItem.Header, Mode=OneWay}" />
+            </StatusBar>
+          
+        </Grid>
+    </Controls:MetroContentControl>
+</Controls:MetroWindow>

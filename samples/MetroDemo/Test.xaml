@@ -3,7 +3,7 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:ExampleViews="clr-namespace:MetroDemo.ExampleViews" x:Class="MetroDemo.Test"
-                      Title="DYB医疗数据采集平台-炎症性肠病临床数据管理与分析系统"
+                      Title="DYB医疗数据采集平台-炎症性肠病临床数据管理与分析系统V1.00"
                    WindowState="Maximized"
       WindowStartupLocation="CenterScreen"
    

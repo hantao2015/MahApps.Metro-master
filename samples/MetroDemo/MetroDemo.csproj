@@ -365,10 +365,6 @@
     <Resource Include="mahapps.metro.logo2.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\WpfD3D\Render.Core\Renderer.Core.csproj">
-      <Project>{3c55f69f-739d-4a3b-862c-4c36b8f5d616}</Project>
-      <Name>Renderer.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\MahApps.Metro.Resources\MahApps.Metro.Resources.csproj">
       <Project>{E708AC99-605B-42A0-8D20-ABCA8FE42DD2}</Project>
       <Name>MahApps.Metro.Resources</Name>

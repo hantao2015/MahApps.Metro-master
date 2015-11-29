@@ -38,7 +38,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.Tests", "Maha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniUiAppCode", "MiniUiAppCode\MiniUiAppCode.csproj", "{50B5C7E5-E78B-4B4A-A5C2-214A286F3183}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renderer.Core", "..\WpfD3D\Render.Core\Renderer.Core.csproj", "{3C55F69F-739D-4A3B-862C-4C36B8F5D616}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renderer.Core", "WpfD3D\Render.Core\Renderer.Core.csproj", "{3C55F69F-739D-4A3B-862C-4C36B8F5D616}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

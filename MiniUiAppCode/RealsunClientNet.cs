@@ -11,7 +11,7 @@ namespace MiniUiAppCode
 {
    public static class RealsunClientNet
     {
-        private static CookieContainer m_CookieContainer = new CookieContainer();
+        public  static CookieContainer m_CookieContainer = new CookieContainer();
         private static string strBaseUrl = "http://121.199.9.136:8082/rispweb/";
         private const  string strLoginPage = "rispservice/ajaxSvrLogin.aspx";
         public static Task<Hashtable>  Login(string user, string upass)

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows;
+ 
+using MetroDemo.ExampleWindows;
 
 namespace MetroDemo.ExampleViews
 {
@@ -16,7 +18,7 @@ namespace MetroDemo.ExampleViews
 
         private void Tile_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            MessageBox.Show("title");
+            new InteropDemo().Show();
         }
     }
 }

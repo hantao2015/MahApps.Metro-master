@@ -17,7 +17,7 @@
         <Controls:WindowCommands ShowLastSeparator="False" >
             <Button x:Name="button"  Click="button_Click" Height="39" Width="120" Content="登入系统 "  />
          
-            <Button x:Name="button3"  Click="button3_Click" Height="39" Width="120" Content="demo" Visibility="Hidden"/>
+            <Button x:Name="button3"  Click="button3_Click" Height="39" Width="120" Content="demo" Visibility="Visible"/>
 
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>

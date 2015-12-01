@@ -37,14 +37,18 @@
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-
-    <ScrollViewer HorizontalScrollBarVisibility="Visible"
+ 
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden"
                   VerticalScrollBarVisibility="Disabled">
-        <Grid Background="{DynamicResource AccentColorBrush4}">
+        
+        <Grid  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="430*" />
             </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="/MetroDemo;component/images/1.jpg"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="83*" />
                 <RowDefinition Height="259*" />
@@ -53,9 +57,9 @@
             <TextBlock Grid.Column="1"
                        VerticalAlignment="Center"
                        Text="上海市第一人民医院"
-                       FontWeight="Light"
-                       Foreground="{DynamicResource BlackBrush}"
-                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="{DynamicResource WhiteBrush}"
+                       FontSize="40"
                        FontFamily="Segoe UI" />
 
             <WrapPanel Grid.Row="1"
@@ -86,28 +90,70 @@
                           Background="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Tile}}}">
                         <Grid.OpacityMask>
                             <VisualBrush Stretch="Fill"
-                                         Visual="{DynamicResource appbar_user_add}" />
+                                         Visual="{DynamicResource appbar_archive}" />
                         </Grid.OpacityMask>
                     </Grid>
-
+                    
                 </Controls:Tile>
                 <Controls:Tile Title="合并症"
                                Style="{StaticResource LargeTileStyle}"
-                               Background="Green" />
+                               Background="Green" >
+                    <Grid Width="40"
+                          Background="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Tile}}}">
+                        <Grid.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{DynamicResource appbar_bug}" />
+                        </Grid.OpacityMask>
+                    </Grid>
+                </Controls:Tile>
+
                 <Controls:Tile Title="简明病历"
                                Style="{StaticResource LargeTileStyle}"
-                               Background="#D2691E" />
+                               Background="#D2691E" >
+                    <Grid Width="40"
+                          Background="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Tile}}}">
+                        <Grid.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{DynamicResource appbar_alert}" />
+                        </Grid.OpacityMask>
+                    </Grid>
+                </Controls:Tile>
                 <Controls:Tile Title="纪要"
                                Style="{StaticResource LargeTileStyle}"
-                               Background="#1E90FF" />
-                <Controls:Tile Title="会议"
+                               Background="#1E90FF">
+                    <Grid Width="40"
+                          Background="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Tile}}}">
+                        <Grid.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{DynamicResource appbar_base}" />
+                        </Grid.OpacityMask>
+                    </Grid>
+                </Controls:Tile>
+                <Controls:Tile Title="会议沟通"
                                Style="{StaticResource SmallTileStyle}"
-                               Background="#1E90FF" />
+                               Background="#1E90FF" >
+                    <Grid Width="40"
+                          Background="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Tile}}}">
+                        <Grid.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{DynamicResource appbar_chat}" />
+                        </Grid.OpacityMask>
+                    </Grid>
+                </Controls:Tile>
                 <Controls:Tile Title="视频浏览"
                                Style="{StaticResource SmallTileStyle}"
                                Background="Green"
-                               Click="Tile_Click2 "/>
+                               Click="Tile_Click2 ">
+                    <Grid Width="40"
+                          Background="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Tile}}}">
+                        <Grid.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{DynamicResource appbar_camera_flash}" />
+                        </Grid.OpacityMask>
+                    </Grid>
+                </Controls:Tile>
             </WrapPanel>
+          
         </Grid>
     </ScrollViewer>
 </UserControl>

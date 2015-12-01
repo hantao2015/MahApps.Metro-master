@@ -398,6 +398,9 @@
     <Resource Include="images\blank-cd.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Wildlife.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

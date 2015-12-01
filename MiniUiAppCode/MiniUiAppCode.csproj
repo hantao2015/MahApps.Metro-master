@@ -33,9 +33,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data">
+      <HintPath>bin\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\HSPlatform\HsPlatform\bin\Debug\MySql.Data.dll</HintPath>
+      <HintPath>bin\Debug\MySql.Web.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json.Net20">
       <HintPath>..\Newtonsoft.Json.Net20.dll</HintPath>

@@ -81,22 +81,32 @@
                 </Controls:Tile>
                 <Controls:Tile Title="背景资料"
                                Style="{StaticResource LargeTileStyle}"
-                               Margin="3" />
+                               Margin="3" >
+                    <Grid Width="40"
+                          Background="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Tile}}}">
+                        <Grid.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{DynamicResource appbar_user_add}" />
+                        </Grid.OpacityMask>
+                    </Grid>
+
+                </Controls:Tile>
                 <Controls:Tile Title="合并症"
                                Style="{StaticResource LargeTileStyle}"
                                Background="Green" />
                 <Controls:Tile Title="简明病历"
                                Style="{StaticResource LargeTileStyle}"
                                Background="#D2691E" />
-                <Controls:Tile Title="Weather"
+                <Controls:Tile Title="纪要"
                                Style="{StaticResource LargeTileStyle}"
                                Background="#1E90FF" />
-                <Controls:Tile Title="Weather"
+                <Controls:Tile Title="会议"
                                Style="{StaticResource SmallTileStyle}"
                                Background="#1E90FF" />
-                <Controls:Tile Title="Store"
+                <Controls:Tile Title="视频浏览"
                                Style="{StaticResource SmallTileStyle}"
-                               Background="Green" />
+                               Background="Green"
+                               Click="Tile_Click2 "/>
             </WrapPanel>
         </Grid>
     </ScrollViewer>

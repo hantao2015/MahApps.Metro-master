@@ -7,11 +7,12 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:exampleViews="clr-namespace:MetroDemo.ExampleViews"
-                      Title="MahApps.Metro - Demo Application"
-                      Width="960"
-                      Height="600"
+                      Title="大億宝演示"
+                      Width="300"
+                      Height="400"
                       Icon="mahapps.metro.logo2.ico"
-                      ShowIconOnTitleBar="True"
+                      ShowIconOnTitleBar="False"
+                      
                       ShowTitleBar="True"
                       WindowStartupLocation="CenterScreen"
                       GlowBrush="{DynamicResource AccentColorBrush}"
@@ -21,6 +22,7 @@
                       d:DesignWidth="800"
                       d:DataContext="{d:DesignInstance MetroDemo:MainWindowViewModel}"
                       Closing="MetroWindow_Closing"
+                      ShowCloseButton="True"
                       Dialog:DialogParticipation.Register="{Binding}">
 
     <Window.Resources>
@@ -89,7 +91,7 @@
     </Window.Resources>
 
     <Controls:MetroWindow.LeftWindowCommands>
-        <Controls:WindowCommands>
+        <Controls:WindowCommands Visibility="Hidden">
             <Button Click="LaunchMahAppsOnGitHub"
                     ToolTip="MahApps.Metro on GitHub">
                 <Rectangle Width="22"
@@ -104,8 +106,8 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.LeftWindowCommands>
 
-    <Controls:MetroWindow.RightWindowCommands>
-        <Controls:WindowCommands ShowLastSeparator="False">
+    <Controls:MetroWindow.RightWindowCommands >
+        <Controls:WindowCommands ShowLastSeparator="False" Visibility="Hidden">
             <Button Click="LaunchSizeToContentDemo"
                     ToolTip="SizeToContent demo"
                     Content="STC" />
@@ -141,7 +143,7 @@
     <Controls:MetroContentControl>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
@@ -156,29 +158,29 @@
                 <MenuItem Header="Accent"
                           ItemsSource="{Binding AccentColors, Mode=OneWay}"
                           ItemContainerStyle="{StaticResource AccentColorMenuItemStyle}" />
-                <MenuItem Header="Dialogs">
+                <MenuItem Header="Dialogs" Visibility="Hidden">
                     <MenuItem Header="Use Accent?"
                               x:Name="UseAccentForDialogsMenuItem"
                               IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=UseAccentForDialogs}"
                               IsCheckable="True" />
                     <Separator />
                     <MenuItem Click="ShowInputDialog"
-                              Header="Show InputDialog" />
+                              Header="Show InputDialog"  Visibility="Hidden"/>
                     <MenuItem Click="ShowLoginDialog"
-                              Header="Show LoginDialog" />
+                              Header="Show LoginDialog"  Visibility="Hidden"/>
                     <MenuItem Click="ShowLoginDialogPasswordPreview"
-                              Header="Show Password Preview LoginDialog" />
-                    <MenuItem Click="ShowMessageDialog"
+                              Header="Show Password Preview LoginDialog" Visibility="Hidden"/>
+                    <MenuItem Click="ShowMessageDialog" Visibility="Hidden"
                               Header="Show MessageDialog" />
-                    <MenuItem Click="ShowLimitedMessageDialog"
+                    <MenuItem Click="ShowLimitedMessageDialog" Visibility="Hidden"
                               Header="Show MessageDialog (Limited Size)" />
-                    <MenuItem Click="ShowProgressDialog"
+                    <MenuItem Click="ShowProgressDialog" Visibility="Hidden"
                               Header="Show ProgressDialog" />
-                    <MenuItem Click="ShowCustomDialog"
+                    <MenuItem Click="ShowCustomDialog" Visibility="Hidden"
                               Header="Show CustomDialog" />
-                    <MenuItem Click="ShowDialogOutside"
+                    <MenuItem Click="ShowDialogOutside" Visibility="Hidden"
                               Header="Show CustomDialog Externally" />
-                    <MenuItem Click="ShowAwaitCustomDialog"
+                    <MenuItem Click="ShowAwaitCustomDialog" Visibility="Hidden"
                               Header="Await CustomDialog" />
                     <Separator />
                     <MenuItem Command="{Binding ShowInputDialogCommand}"
@@ -192,7 +194,7 @@
                     <MenuItem Command="{Binding ShowCustomDialogCommand}"
                               Header="Show CustomDialog via VM" />
                 </MenuItem>
-                <MenuItem Header="Window">
+                <MenuItem Header="Window"  Visibility="Hidden">
                     <MenuItem IsCheckable="True" Header="ShowInTaskbar"
                               IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=ShowInTaskbar}" />
                     <MenuItem IsCheckable="True" Header="Topmost"
@@ -214,7 +216,7 @@
                 </MenuItem>
             </Menu>
 
-            <Controls:MetroAnimatedSingleRowTabControl Grid.Row="1" x:Name="MainTabControl">
+            <Controls:MetroAnimatedSingleRowTabControl Grid.Row="1" x:Name="MainTabControl" Visibility="Hidden">
                 <TabItem Header="buttons">
                     <exampleViews:ButtonsExample DataContext="{Binding}" />
                 </TabItem>
@@ -246,8 +248,8 @@
                     <exampleViews:OtherExamples DataContext="{Binding}" />
                 </TabItem>
             </Controls:MetroAnimatedSingleRowTabControl>
-            
-            <StatusBar Grid.Row="2">
+
+            <StatusBar Grid.Row="2" Visibility="Hidden">
                 <StatusBarItem>MahApps.Metro DEMO Application</StatusBarItem>
                 <Separator Style="{StaticResource MetroStatusBarSeparator}" />
                 <StatusBarItem>Selected Tab:</StatusBarItem>

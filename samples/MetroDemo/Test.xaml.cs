@@ -26,32 +26,36 @@ using Renderer.Core;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Animation;
 using MiniUiAppCode;
+ 
+
 
 namespace MetroDemo
 {
     /// <summary>
     /// Interaction logic for Test.xaml
     /// </summary>
-    public partial class Test : MetroWindow
+    public partial class Test 
     {
 
         private MediaClock clock;
 
-
+        private readonly MainWindowViewModel _viewModel;
         private bool  isLoginbuttonClicked=false;
         private static CookieContainer m_CookieContainer = new CookieContainer();
         private static string m_strLoginUrl = "http://121.199.9.136:8082/rispweb/rispservice/ajaxSvrLogin.aspx";
         public Test()
         {
+            _viewModel = new MainWindowViewModel(DialogCoordinator.Instance);
+            DataContext = _viewModel;
             InitializeComponent();
-            var accent = ThemeManager.Accents.First(x => x.Name == "Steel");
+            var accent = ThemeManager.Accents.First(x => x.Name == "Purple");
            var theme = ThemeManager.GetAppTheme("BaseLight");
             ThemeManager.ChangeAppStyle(Application.Current, accent, theme);
 
             TaskEx.Delay(2000);
             homepage.IsEnabled = false;
 
-            MediaTimeline timeline = new MediaTimeline(new Uri("http://121.199.9.136:9999/Wildlife2.wmv", UriKind.RelativeOrAbsolute));
+            MediaTimeline timeline = new MediaTimeline(new Uri("Wildlife.wmv", UriKind.RelativeOrAbsolute));
             clock = timeline.CreateClock();//创建控制时钟
            
             MediaElement mediaElement = Resources["video"] as MediaElement;//得到资源
@@ -118,7 +122,9 @@ namespace MetroDemo
                     var controller = await this.ShowProgressAsync("请稍后...", "正在登入系统!");
                     controller.SetIndeterminate();
                     controller.SetCancelable(true);
-                    Hashtable loginReturnData = await RealsunClientNet.Login(result.Username, result.Password);
+                    // Hashtable loginReturnData = await RealsunClientNet.Login(result.Username, result.Password);
+                    Hashtable loginReturnData = new Hashtable () ;
+                    loginReturnData.Add("error", 0);
                     if (Convert.ToInt16(loginReturnData["error"]) == 0)
                     {
                         await controller.CloseAsync();

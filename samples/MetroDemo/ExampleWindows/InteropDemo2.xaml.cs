@@ -3,13 +3,13 @@ using System.Runtime.InteropServices;
 
 namespace MetroDemo.ExampleWindows
 {
-    public partial class InteropDemo
+    public partial class InteropDemo2
     {
         [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool InternetSetCookie(string lpszUrlName, string lbszCookieName, string lpszCookieData);
         public string m_cookie = "";
-        private string m_url = "http://121.199.9.136:8989/mycontact/index.html";
-        public InteropDemo()
+        private string m_url = "http://121.199.9.136:8989/dyb2/index.html";
+        public InteropDemo2()
         {
             InitializeComponent();
             string url = "http://121.199.9.136:8082/rispweb/rispservice/ajaxSvrLogin.aspx";

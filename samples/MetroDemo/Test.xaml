@@ -3,44 +3,56 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:ExampleViews="clr-namespace:MetroDemo.ExampleViews" x:Class="MetroDemo.Test"
-                      Title="DYB医疗数据采集平台-炎症性肠病临床数据管理与分析系统V1.00"
-                   WindowState="Maximized"
-      WindowStartupLocation="CenterScreen"
+                      Title="DYB医疗数据采集平台-炎症性肠病临床数据管理与分析系统--演示"
+                      WindowState="Maximized"
+                      WindowStartupLocation="CenterScreen"
+                      xmlns:MetroDemo="clr-namespace:MetroDemo"
+                      xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      Width="960"
+                      Height="600"
+                      Icon="mahapps.metro.logo2.ico"
+                      ShowIconOnTitleBar="True"
+                      ShowTitleBar="True"     
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      NonActiveGlowBrush="#CDFF0000"
+                      mc:Ignorable="d"
+       d:DataContext="{d:DesignInstance MetroDemo:MainWindowViewModel}"
+                 
+                  
     >
     <Window.Resources>
-      
-            
+
+
         <ResourceDictionary>
-            <MediaElement x:Key="video" Source="http://121.199.9.136:9999/Wildlife2.wmv" Stretch="Fill" LoadedBehavior="Manual" />
+            <MediaElement x:Key="video" Source="Wildlife.wmv" Stretch="Fill" LoadedBehavior="Manual" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.Resources;component/Icons.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Clean/Clean.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatSlider.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-
-            
+           
         </ResourceDictionary>
     </Window.Resources>
-
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands ShowLastSeparator="False" >
-            <Button x:Name="button3"  Click="button3_Click" Height="39" Width="120" Content="demo" Visibility="Visible"/>
+            <Button x:Name="button3"  Click="button3_Click" Height="39" Width="120" Content="主题/色调" />
             <Button x:Name="button"  Click="button_Click" Height="39" Width="120" Content="登入系统 "  />
          
-            
-
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-   
-    <Controls:MetroContentControl>
 
-  
+    <Controls:MetroContentControl>
         <Grid>
             <Grid.RowDefinitions>
+              
                 <RowDefinition Height="*"  />
                 <RowDefinition Height="Auto" />
                
             </Grid.RowDefinitions>
-           
+            
+
             <Controls:MetroAnimatedSingleRowTabControl Grid.Row="0" x:Name="MainTabControl"  >
                
                 <TabItem Header="欢迎" x:Name="welcomepage">

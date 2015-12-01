@@ -20,5 +20,10 @@ namespace MetroDemo.ExampleViews
         {
             new InteropDemo().Show();
         }
+        private   void Tile_Click2(object sender, System.Windows.RoutedEventArgs e)
+        {
+          //  new InteropDemo2().Show();
+         
+        }
     }
 }

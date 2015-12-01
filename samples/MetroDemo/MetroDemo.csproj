@@ -33,7 +33,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://121.199.9.136:9999/</UpdateUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -167,6 +167,9 @@
     <Compile Include="ExampleWindows\IconsWindow.xaml.cs">
       <DependentUpon>IconsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExampleWindows\InteropDemo2.xaml.cs">
+      <DependentUpon>InteropDemo2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ExampleWindows\InteropDemo.xaml.cs">
       <DependentUpon>InteropDemo.xaml</DependentUpon>
     </Compile>
@@ -259,6 +262,10 @@
     <Page Include="ExampleWindows\IconsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExampleWindows\InteropDemo2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ExampleWindows\InteropDemo.xaml">
       <Generator>MSBuild:Compile</Generator>
